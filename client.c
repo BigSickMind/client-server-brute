@@ -23,7 +23,6 @@ typedef struct parmtrs_t {
     int host_socket;
 } parmtrs_t;
 
-//void * client(void * arg) {
 int main(int argc, char *argv[]){
     parmtrs_t * parmtrs = (parmtrs_t *) arg;
 
