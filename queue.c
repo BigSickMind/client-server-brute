@@ -14,7 +14,6 @@ typedef struct queue_t {
 
 void queue_init (queue_t * queue)
 {
-    // 6
     queue->head = 0;
     queue->tail = 0;
     pthread_mutex_init(&queue->head_mutex, NULL);
@@ -25,7 +24,6 @@ void queue_init (queue_t * queue)
 
 void queue_push (queue_t * queue, int * value)
 {
-    // 7
     sem_wait(&queue->empty);
     pthread_mutex_lock(&queue->head_mutex);
     queue->queue[queue->head] = *value;
@@ -37,7 +35,6 @@ void queue_push (queue_t * queue, int * value)
 
 void queue_pop (queue_t * queue, int * value)
 {
-    // 7
     sem_wait(&queue->full);
     pthread_mutex_lock(&queue->tail_mutex);
     *value = queue->queue[queue->tail];
